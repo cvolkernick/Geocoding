@@ -92,6 +92,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
+    public void onGeocodeAPI(double lat, double lon) {
+        tvLocation.setText("Location Geocode : " + lat + " Lat / " + lon + " Lon");
+        etLocationLatitude.setText(Double.toString(lat));
+        etLocationLongitude.setText(Double.toString(lon));
+    }
+
+    @Override
+    public void onReverseGeocodeAPI(String address) {
+        tvLocation.setText(address);
+        etAddressLocation.setText(address);
+    }
+
+    @Override
     public void showError(String error) {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
@@ -102,6 +115,18 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     public void reverseGeocodeLocation(View view) {
         mainPresenter.reverseGeocode(
+            this,
+            Double.parseDouble(etLocationLatitude.getText().toString()),
+            Double.parseDouble(etLocationLongitude.getText().toString())
+        );
+    }
+
+    public void geocodeLocationAPI(View view) {
+        mainPresenter.geocodeAPI(this, etAddressLocation.getText().toString());
+    }
+
+    public void reverseGeocodeLocationAPI(View view) {
+        mainPresenter.reverseGeocodeAPI(
             this,
             Double.parseDouble(etLocationLatitude.getText().toString()),
             Double.parseDouble(etLocationLongitude.getText().toString())

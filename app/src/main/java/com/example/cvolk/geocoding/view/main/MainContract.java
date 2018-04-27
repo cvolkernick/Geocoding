@@ -17,6 +17,10 @@ public interface MainContract {
         void onGeocode(double lat, double lon);
 
         void onReverseGeocode(String address);
+
+        void onGeocodeAPI(double lat, double lon);
+
+        void onReverseGeocodeAPI(String address);
     }
 
     interface Presenter extends BasePresenter<View> {
@@ -28,5 +32,9 @@ public interface MainContract {
         void geocode(Context context, String address);
 
         void reverseGeocode(Context context, double lat, double lon);
+
+        void geocodeAPI(Context context, String address);
+
+        void reverseGeocodeAPI(Context context, double lat, double lon);
     }
 }

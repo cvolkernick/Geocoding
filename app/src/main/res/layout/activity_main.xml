@@ -20,6 +20,12 @@
         android:text="Geocode Location"
         android:onClick="geocodeLocation"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Geocode Location (API)"
+        android:onClick="geocodeLocationAPI"/>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,6 +43,12 @@
         android:layout_height="wrap_content"
         android:text="Reverse Geocode Location"
         android:onClick="reverseGeocodeLocation"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reverse Geocode Location (API)"
+        android:onClick="reverseGeocodeLocationAPI"/>
 
     <TextView
         android:textColor="@color/colorAccent"
